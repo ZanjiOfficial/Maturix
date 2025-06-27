@@ -1,0 +1,15 @@
+﻿<Window x:Class="MATURIXSHIFTPROJECT.Views.DescriptionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MATURIXSHIFTPROJECT.Views"
+        mc:Ignorable="d"
+         Title="Log Description" Height="200" Width="300">
+    <Grid Margin="10">
+        <StackPanel>
+            <TextBlock Text="{Binding Date, StringFormat='Date: {0:dd-MM-yyyy}'}" FontSize="16"/>
+            <TextBlock Text="{Binding Description}" FontSize="16" TextWrapping="Wrap"/>
+        </StackPanel>
+    </Grid>
+</Window>

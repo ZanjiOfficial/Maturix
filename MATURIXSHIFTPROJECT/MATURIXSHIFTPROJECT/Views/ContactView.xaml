@@ -1,0 +1,150 @@
+﻿<UserControl x:Class="MATURIXSHIFTPROJECT.Views.ContactView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MATURIXSHIFTPROJECT.Views"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             SizeChanged="Window_SizeChanged">
+
+    <Grid>
+        <ListView Name="myListView"
+                  Margin="0"
+                  ItemsSource="{Binding Employees}">
+
+            <!-- Header style for GridView columns -->
+            <ListView.Resources>
+                <Style TargetType="GridViewColumnHeader">
+                    <Setter Property="Background"
+                            Value="#fc5603" />
+                    <Setter Property="Foreground"
+                            Value="White" />
+                    <Setter Property="FontSize"
+                            Value="20" />
+                    <Setter Property="HorizontalContentAlignment"
+                            Value="Center" />
+                    <Setter Property="VerticalContentAlignment"
+                            Value="Center" />
+                    <Setter Property="Padding"
+                            Value="5" />
+                    <Setter Property="FontFamily"
+                            Value="Lucida Sans Unicode" />
+                    <Setter Property="Height"
+                            Value="40" />
+                    <Setter Property="Margin"
+                            Value="0,-1,1,0" />
+                    <Setter Property="Template">
+               
+                        <Setter.Value>
+                            <ControlTemplate TargetType="GridViewColumnHeader">
+                                <Border Background="{TemplateBinding Background}"
+                                        BorderBrush="Transparent"
+                                        BorderThickness="0,0,0,0"
+                                        CornerRadius="0">
+                                    <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                      RecognizesAccessKey="True" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.Resources>
+
+            <!-- Row height and style -->
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="MinHeight"
+                            Value="50" />
+                    <Setter Property="Focusable"
+                            Value="False" />
+                    <Setter Property="VerticalContentAlignment"
+                            Value="Center" />
+                    <Setter Property="HorizontalContentAlignment"
+                            Value="Center" />
+                    <Setter Property="FontSize"
+                            Value="25" />
+                    <Setter Property="FontFamily"
+                            Value="Lucida Sans Unicode" />
+                    <Setter Property="Foreground"
+                            Value="Black" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter Property="Background"
+                                    Value="LightGray" />
+                            <Setter Property="BorderBrush"
+                                    Value="Transparent" />
+                        </Trigger>
+                        <Trigger Property="IsSelected"
+                                 Value="True">
+                            <Setter Property="Background"
+                                    Value="LightGray" />
+                            <Setter Property="BorderBrush"
+                                    Value="Transparent" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <!-- GridView with columns -->
+            <ListView.View>
+                <GridView>
+
+                    <GridViewColumn Header="Initials">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Initials}"
+                                           Padding="10,0"
+                                           VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Full Name">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"
+                                           Padding="10,0"
+                                           VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Email">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Email}"
+                                           Padding="10,0"
+                                           VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Phone Number">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding PhoneNumber}"
+                                           Padding="10,0"
+                                           VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Department">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Department.Name}"
+                       Padding="10,0"
+                       VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</UserControl>
